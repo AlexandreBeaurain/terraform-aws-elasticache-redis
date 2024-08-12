@@ -10,7 +10,7 @@ resource "aws_elasticache_replication_group" "redis" {
   security_group_ids   = concat(var.security_group_ids, [aws_security_group.redis.id])
 
   preferred_cache_cluster_azs = var.preferred_cache_cluster_azs
-  replication_group_id        = var.global_replication_group_id == null ? "${var.name_prefix}-redis" : "${var.name_prefix}-redis-replica"
+  replication_group_id        = var.override_name != null ? var.override_name : var.global_replication_group_id == null ? "${var.name_prefix}-redis" : "${var.name_prefix}-redis-replica"
   num_cache_clusters          = var.cluster_mode_enabled ? null : var.num_cache_clusters
   node_type                   = var.global_replication_group_id == null ? var.node_type : null
 

@@ -3,6 +3,12 @@ variable "name_prefix" {
   description = "The replication group identifier. This parameter is stored as a lowercase string."
 }
 
+variable "override_name" {
+  type        = string
+  default     = null
+  description = "Override name in order to comply with 1.0.0 version."
+}
+
 variable "num_cache_clusters" {
   type        = number
   default     = 1
