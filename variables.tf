@@ -103,6 +103,12 @@ variable "snapshot_retention_limit" {
   description = "The number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them."
 }
 
+variable "snapshot_arns" {
+  default     = null
+  type        = list(string)
+  description = "Snapshot arns in order to prevent migration"
+}
+
 variable "auto_minor_version_upgrade" {
   default = true
   type    = string
